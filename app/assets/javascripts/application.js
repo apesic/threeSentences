@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks
+//= require sly
 //= require stories
 //= require jquery.fileDownload
 //= require_tree .

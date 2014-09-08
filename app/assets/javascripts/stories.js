@@ -4,7 +4,38 @@ var storyView = (function() {
   var columnTemplate,
       cueTemplate,
       sentenceTemplate,
-      currentSentenceContent;
+      currentSentenceContent,
+      sly;
+
+  var slyOptions = {
+    horizontal: 1,
+
+    itemNav: 'forceCentered',
+    itemSelector: '.column',
+    smart: 1,
+    // activateOn: 'click',
+    activateMiddle: 1,
+
+    scrollSource: 'header',
+    scrollBy: 1,
+
+    scrollBar: '.scrollbar',
+    dragHandle: 1,
+    dynamicHandle: 1,
+    clickBar: 1,
+
+    mouseDragging: 1,
+    touchDragging: 1,
+    releaseSwing: 1,
+    swingSpeed: 0.2,
+    elasticBounds: 0,
+
+    keyboardNavBy: 'items',
+    next: '.right',
+    prev: '.left'
+  };
+
+
 
   var initializeTemplates = function() {
     _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
@@ -73,6 +104,12 @@ var storyView = (function() {
     };
   };
 
+  // var adjustWidth = function() {
+  //   var viewport = $(window).width();
+  //   var current = $('body').width();
+  //   $('body').width(current + Math.floor(viewport * 0.65));
+  // };
+
   return {
    buildColumn: function(depth) {
      var column = columnTemplate({depth: depth});
@@ -96,8 +133,7 @@ var storyView = (function() {
 
       });
       column += "</div>";
-      $('#frame').append(column);
-
+      sly.add(column);
     },
 
     findOrInitializeColumn: function(depth) {
@@ -124,9 +160,11 @@ var storyView = (function() {
 
     initialize: function() {
      story.sentences = [];
+     sly = new Sly('#frame', slyOptions);
      initializeTemplates();
      initializeSentences();
      bindEventListeners();
+
     }
   };
 
@@ -224,7 +262,7 @@ Sentence.prototype.updateElement = function() {
 
 var sentenceToggle = function(){
   $(this).siblings('input').toggle();
-}
+};
 
 // ---------------------------------------------
 

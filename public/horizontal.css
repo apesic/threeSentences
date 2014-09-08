@@ -1,4 +1,25 @@
+#frame {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+}
 
+#frame .slidee {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#frame .slidee .column {
+  float: left;
+  margin: 0 60px 0 0;
+  padding: 0;
+  width: 800px;
+  height: 100%;
+}
+
+
+/*
 #frame {
 	height: 100%;
     margin: 0px 0px;
@@ -20,8 +41,6 @@
 	height: 90vh;
 	margin: 0 5px 0 0;
 	background: #fff;
-    /*border: solid black;*/
-    /*border-radius: 20px;*/
 	color: #ddd;
 	text-align: center;
 	cursor: pointer;
@@ -58,3 +77,4 @@ p {
 h1, h2, h3, h4, h5, h6, li, p {
 	color: #333333;
 }
+*/
